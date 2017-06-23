@@ -542,6 +542,73 @@ let serverResponseCode: Int? = 404
 //断言
 assert(serverResponseCode == 404, "网页没找到、")
 
+//长文本的显示
+/*
+let quotation = """
+The White Rabbit put on his spectacles.  "Where shall I begin,
+please your Majesty?" he asked.
+
+"Begin at the beginning," the King said gravely, "and go on
+till you come to the end; then stop."""
+*/
+
+//空字符串检测
+let emptyString = ""
+if emptyString.isEmpty {
+    print("该字符串是空字符串")
+}
+
+//字符拼接
+let catCharacters : [Character] = ["c","a","t","!","🐱"]
+let catString = String(catCharacters)
+for character in catString.characters {
+    print(character)
+}
+
+//大写和小写字符串
+let normalString = "are you  ok ?"
+let upString = normalString.uppercased()
+let lowString = upString.lowercased()
+
+//字符串获取子串
+let greetingString = "Guten Tag!"
+greetingString[greetingString.startIndex]
+//before 指向给定索引之前的一个索引(类似与 - 1)
+greetingString[greetingString.index(before: greetingString.endIndex)]
+//after 指向给定索引后面的一个索引(类似与 + 1)
+greetingString[greetingString.index(after: greetingString.startIndex)]
+let index = greetingString.index(greetingString.startIndex, offsetBy: 7)
+greetingString[index]
+//offsetBy 的值可以为正或是负, 正则表示向后, 负则相反.
+let limIndex = greetingString.index(greetingString.startIndex, offsetBy: 6, limitedBy: greetingString.endIndex)
+if let limIndex = limIndex {
+    print(greetingString[limIndex])
+}
+
+//取某个位置之后的所有字符
+greetingString.substring(from: greetingString.index(greetingString.startIndex, offsetBy: 4))
+//取倒数某个位置之后的所有字符
+greetingString.substring(from: greetingString.index(greetingString.endIndex, offsetBy: -4))
+//取某个位置之前的所有字符
+greetingString.substring(to: greetingString.index(greetingString.startIndex, offsetBy: 5))
+//取倒数某个位置之前的所有字符
+greetingString.substring(to: greetingString.index(greetingString.endIndex, offsetBy: -5))
+//取中间的某个字符串 Guten Tag!
+greetingString.substring(with: greetingString.index(greetingString.startIndex, offsetBy: 2)..<greetingString.index(greetingString.endIndex, offsetBy: -2))
+
+//插入字符
+var welcome = "hello there"
+welcome.insert("!", at: welcome.endIndex)
+//插入字符串
+//welcome.insert(contentsOf: " there", at: welcome.index(before: welcome.endIndex))
+
+//移除字符串
+welcome.remove(at: welcome.index(before: welcome.endIndex))
+//移除某个范围
+let range = welcome.index(welcome.endIndex, offsetBy: -6)..<welcome.endIndex
+welcome.removeSubrange(range)
+
+//
 
 
 
